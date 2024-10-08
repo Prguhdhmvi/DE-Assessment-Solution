@@ -1,0 +1,15 @@
+CREATE TABLE Table_India (
+    Customer_Name VARCHAR(255) NOT NULL,
+    Customer_Id VARCHAR(18) NOT NULL,
+    Open_Date DATE NOT NULL,
+    Last_Consulted_Date DATE,
+    Vaccination_Type CHAR(5),
+    Doctor_Consulted CHAR(255),
+    State CHAR(5),
+    Country CHAR(5),
+    Post_Code INT,
+    DOB DATE,
+    Is_Active CHAR(1),
+    Age INT GENERATED ALWAYS AS (YEAR(CURDATE()) - YEAR(DOB)),
+    Days_Since_Last_Consulted INT GENERATED ALWAYS AS (DATEDIFF(CURDATE(), Last_Consulted_Date))
+);
